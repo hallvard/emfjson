@@ -11,6 +11,6 @@ markdown: redcarpet
 redcarpet:
     extensions: ["with_toc_data"]
 permalink: pretty
-highlighter: pygments
+highlighter: none
 sass:
     sass_dir: _sass
