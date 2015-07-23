@@ -5,15 +5,22 @@ title: emfjson - format
 
 # JSON Format
 
-EMFJson format aims to simplify the definition of EMF models by using a more human readable format than the default XML format prodived by the EMF framework. It also simplifies the use of EMF data models in modern development stack that invlove different technologies and make heavy use of JSON, for example when developing Web applications.
+EMFJson aims to offer an alternative format to the default XML format (XMI) used by the Eclipse Modeling Framework to serialize 
+ Ecore models.
 
-EMFJson format is simple and customizable and preserves the specificities of EMF, e.g. object fragment identifiers, inter and cross documents references.
+It also simplifies the use of EMF data models in modern development stack that involve 
+different technologies and make heavy use of JSON, for example when developing Web applications.
+
+EMFJson format is simple and customizable and preserves the features of the XMI format, e.g. object fragment identifiers, 
+inter and cross object references.
 
 ## JSON Document
 
-A JSON document contains the description of a model. It can contain a single element as a JSON Object or a collection of elements as a JSON Array. 
+A JSON document is the actual representation of a Resource. It can contain a single element as a JSON Object or a collection of 
+elements as a JSON Array. 
 
-Below a document containing a single element. The element is an object of type `EClass` and contains 2 features, being respectively an `EAttribute` and a `EReference`.
+The document shown below represents a Resource containing a single element. The element is an object of type `EClass` and contains 2 
+features, respectively an `EAttribute` and a `EReference`.
 
 ```json
 {
@@ -35,37 +42,46 @@ Below a document containing a single element. The element is an object of type `
 }
 ```
 
-The second document contains a collection of objects. Those 2 objects are of type EClass.
+The second document represents a Resource whose content is made of 2 objects of type `Foo`. Those are instances of the `EClass` 
+defined in the previous document. 
+
+When a Resource contains more than one object, it's content is serialized as a JSON array. The content of the array being 
+JSON objects.
 
 ```json
 [
     {
-        "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EClass",
-        "name": "A"        
+        "eClass": "http://emfjson.org/sample#//Foo",
+        "bar": "A"
     },
     {
-        "eClass": "http://www.eclipse.org/emf/2002/Ecore#//EClass",
-        "name": "B",
-        "eSuperTypes": [ "model.ecore#//A" ]
+        "eClass": "http://emfjson.org/sample#//Foo",
+        "bar": "B"
     }
 ]
 ```
 
 We can note that in this document the second object declares an inter-reference to the first object via it's property `eSuperTypes`.
 
-Internal and external or cross references represent link between objects. In EMF, those links are defined by `EReferences` that are generally not containments. 
+Internal and external or cross references represent link between objects. In EMF, those links are defined by `EReferences` that 
+are generally not containments. 
 
-An example of external references can be found in both example documents under the objects' property `eClass`. The property declares the type of the object, that is another object store in a document identified by a URI.
+An example of external references can be found in both example documents under the objects' property `eClass`. The property declares 
+the type of the object, that is another object store in a document identified by a URI.
 
-We will come back later on the format used to represent objects' references inside a same document and between objects from different documents.
+We will come back later on the format used to represent objects' references inside a same document and between objects 
+from different documents.
 
 ## EObject
 
 EObjects are represented in JSON as JSON object (like this `{}`).
 
-Each key of the JSON object represents a structural feature (`EAttribute` or `EReference`) of the EObject. The associated value is the value of the structural feature. The value can be represented in the form of a `string`, `number`, `boolean`, `object` or `array` depending on the type of the feature.
+Each key of the JSON object represents a structural feature (`EAttribute` or `EReference`) of the EObject. The associated 
+value is the value of the structural feature. The value can be represented in the form of a `string`, `number`, `boolean`, `object` 
+or `array` depending on the type of the feature.
 
-EMFJson format uses a special key to identify the type of an object. This special key is `eClass` and gives us the type of the object in the form of a URI. 
+EMFJson format uses a special key to identify the type of an object. This special key is `eClass` and gives us the type of 
+the object in the form of a URI. 
 
 The following example presents the representation of an instance of EClass as JSON object.
 

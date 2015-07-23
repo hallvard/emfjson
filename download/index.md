@@ -1,6 +1,7 @@
 ---
 layout: down
 title: Download
+version: 0.11.0
 ---
 
 # Download instructions
@@ -31,7 +32,7 @@ Add the following dependency to your project [POM](http://maven.apache.org/pom.h
 <dependency>
     <groupId>org.emfjson</groupId>
     <artifactId>emfjson-jackson</artifactId>
-    <version>0.10.0</version>
+    <version>{{ page.version }}</version>
 </dependency>
 ```
 
@@ -53,11 +54,12 @@ You can install emfjson Jackson in your Eclipse via the following update site
 <dependency>
     <groupId>org.emfjson</groupId>
     <artifactId>emfjson-gwt</artifactId>
-    <version>0.10.0</version>
+    <version>{{ page.version }}</version>
 </dependency>
 ```
 
 # Adapters
+
 
 ## MongoDB
 
@@ -65,7 +67,7 @@ You can install emfjson Jackson in your Eclipse via the following update site
 <dependency>
     <groupId>org.emfjson</groupId>
     <artifactId>emfjson-mongo</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
@@ -75,11 +77,14 @@ You can install emfjson Jackson in your Eclipse via the following update site
 <dependency>
     <groupId>org.emfjson</groupId>
     <artifactId>emfjson-couchdb</artifactId>
-    <version>0.1.0</version>
+    <version>0.2.0</version>
 </dependency>
 ```
 
 # ecore.js
+
+ecorejs is the equivalent of emfjson, and much more, for JavaScript runtimes (Browser, Node). It can be downloaded 
+from npm and bower.
 
 ## NPM
 
