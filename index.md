@@ -32,18 +32,19 @@ title: emfjson - Eclipse Modeling Framework meets JSON
         <div>
             <h2>Simple, Fast and Customizable</h2>
             <p>
-            Integration with EMF Resource and Jackson APIs. Twice as fast as XMI.
+            Integration with EMF Resource and Jackson APIs. 
+            Uses Jackson Streaming API for performance.
             </p>
-            <a>More...</a>
+            <a href="/docs">More...</a>
         </div>
 
         <div>
-            <h2>Support for various plaforms</h2>
+            <h2>Support for various platforms</h2>
             <p>
-            Build for standalone and OSGI environments (e.g. Eclipse plugins).
+            Build for standalone and OSGI environments (e.g. Eclipse plugins),
             GWT and Javascript.
             </p>
-            <a>More...</a>
+            <a href="/docs">More...</a>
         </div>
 
         <div>
@@ -52,7 +53,7 @@ title: emfjson - Eclipse Modeling Framework meets JSON
             You can easily interact with CouchDB and 
             MongoDB through adapters.
             </p>
-            <a>More...</a>
+            <a href="/docs">More...</a>
         </div>
     </div>
 </section>

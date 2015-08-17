@@ -12,7 +12,7 @@ To use it, register the EMF module with a ObjectMapper.
 
 ```java
 ObjectMapper mapper = new ObjectMapper();
-mapper.registerModule(new EMFModule());
+mapper.registerModule(new EMFModule(resourceSet));
 ```
 
 You can now convert a Resource into a JsonNode
