@@ -1,6 +1,6 @@
 ---
 layout: default
-title: emfjson - Eclipse Modeling Framework meets JSON
+title: emfjson
 ---
 
 <div class="site-hero">
